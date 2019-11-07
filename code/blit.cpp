@@ -5,13 +5,13 @@ typedef uint16_t Rgb565;
 
 
 void blit(
-	Rgb565* target,			//Puntero al bufer de la vetana
-	unsigned target_width,	//Ancho de la ventana
-	unsigned target_x,		//coordenada x de la ventana en la que se hara el blit
-	unsigned target_y,		//coordenada y de la ventana en la que se hara el blit
-	Rgb565* source,			//Puntero a la textura
-	unsigned source_width,	//Ancho de la textura
-	unsigned source_height	//Altura de la textura
+	Rgb565* target,         //Puntero al bufer de la vetana
+	unsigned target_width,  //Ancho de la ventana
+	unsigned target_x,      //coordenada x de la ventana en la que se hara el blit
+	unsigned target_y,      //coordenada y de la ventana en la que se hara el blit
+	Rgb565* source,         //Puntero a la textura
+	unsigned source_width,  //Ancho de la textura
+	unsigned source_height  //Altura de la textura
 )
 {
 	unsigned const delta = target_width - source_width;
@@ -22,7 +22,7 @@ void blit(
 	{
 		source_end += source_width;
 
-		while(source < source_end)
+		while (source < source_end)
 		{
 			*target++ = *source++;
 		}
@@ -43,15 +43,7 @@ int main()
 	const unsigned texture_height = 128;
 	Rgb565 texture[texture_width * texture_height];
 
-	blit(
-		display_buffer, //Puntero al bufer de la vetana
-		display_width,	// abcho de la ventana
-		100,			// coordenada x de la ventana en la que se hara el blit
-		100,			// coordenada y de la ventana en la que se hara el blit
-		texture,		// Puntero a la textura
-		texture_width,	//Ancho de la textura
-		texture_height	//Altura de la textura
-	);
+	blit(display_buffer, display_width, 100, 100, texture, texture_width, texture_height);
 
 	return 0;
 }
